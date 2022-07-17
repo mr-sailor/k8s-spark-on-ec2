@@ -1,0 +1,28 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: spark-master
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: spark-master
+  template:
+    metadata:
+      labels:
+        component: spark-master
+    spec:
+      containers:
+        - name: spark-master
+          # image: pastado/spark-hadoop:v0.01
+          image: mjhea0/spark-hadoop:3.2.0
+          command: ["/spark-master"]
+          ports:
+            - containerPort: 7077
+            - containerPort: 3343
+            - containerPort: 8080
+            - containerPort: 4040
+            - containerPort: 8081
+          resources:
+            requests:
+              cpu: 100m

@@ -1,0 +1,29 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: spark-master-cluster
+spec:
+  ports:
+    - name: translate80
+      port: 80
+      targetPort: 8080
+    - name: webui
+      port: 8080
+      targetPort: 8080
+    - name: spark
+      port: 7077
+      targetPort: 7077
+    - name: webui2
+      port: 4040
+      targetPort: 4040
+    - name: driver-port
+      port: 3343
+      targetPort: 3343
+    - name: block-manager
+      port: 5545
+      targetPort: 5545
+    - name: spark-worker-port
+      port: 4454
+      targetPort: 4454   
+  selector:
+    component: spark-master

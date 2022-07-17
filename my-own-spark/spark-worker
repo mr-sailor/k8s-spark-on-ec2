@@ -1,0 +1,6 @@
+#!/bin/bash
+
+. /common.sh
+
+/opt/spark/bin/spark-class org.apache.spark.deploy.worker.Worker spark://spark-master:7077 --webui-port 8081
+#/opt/spark/sbin/start-worker.sh spark://spark-master:7077 --webui-port 8081
