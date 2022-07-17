@@ -1,20 +1,15 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: spark-master # This is intentionally kept like that
+  # name "spark-master" is used for communication between workers & master
+  name: spark-master  
 spec:
   ports:
     - name: webui
       port: 8080
       targetPort: 8080
-    - name: webui2
-      port: 8081
-      targetPort: 8081
     - name: spark
       port: 7077
       targetPort: 7077
-    - name: spark2
-      port: 3343
-      targetPort: 3343
   selector:
     component: spark-master
